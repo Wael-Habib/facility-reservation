@@ -30,14 +30,7 @@ const Footer = () => {
                     <p className="pb-4">Get in Touch</p>
                     <p className="pb-4">Our Privacy Commitment</p>
                     <p className="pb-4">Terms of Service</p>
-                    <p>Customer Assistance</p>
-                </div>
-                <div className="flex-1 md:text-right">
-                    <p className="pb-4">Dining Experience</p>
-                    <p className="pb-4">Wellness</p>
-                    <p className="pb-4">Fitness</p>
-                    <p className="pb-4">Sports</p>
-                    <p>Events</p>
+                    <p>Student Assistance</p>
                 </div>
             </div>
         </div>

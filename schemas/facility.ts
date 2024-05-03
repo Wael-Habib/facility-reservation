@@ -1,10 +1,10 @@
 import { defineField } from 'sanity';
 
-/*const roomTypes = [
-  { title: 'Basic', value: 'basic' },
-  { title: 'Luxury', value: 'luxury' },
-  { title: 'Suite', value: 'suite' },
-];*/
+const roomTypes = [
+  { title: 'Amphitheatre', value: 'amphitheatre' },
+  { title: 'ConferenceRoom', value: 'conferenceRoom' },
+  { title: 'Class', value: 'class' },
+];
 
 const facility = {
   name: 'facility',
@@ -61,7 +61,7 @@ const facility = {
     }),
     defineField({
       name: 'type',
-      title: 'facility Type',
+      title: 'Facility Type',
       type: 'string',
       options: {
         list: roomTypes,
