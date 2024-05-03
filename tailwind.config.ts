@@ -11,11 +11,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#038C7F',
-        secondary: '#F2C641',
+        primary: '#AE9262ff',
+        secondary: '#000000ff',
         tertiary: {
-          dark: '#F27405',
-          light: '#F2C641',
+          dark: '#830709ff',
+          light: '#AE9262ff',
         },
       },
       fontFamily: {
@@ -26,3 +26,9 @@ const config: Config = {
   plugins: [],
 };
 export default config;
+/*
+--lion: #AE9262ff;
+--black: #000000ff;
+--charcoal: #273A48ff;
+--maroon: #830709ff;
+*/

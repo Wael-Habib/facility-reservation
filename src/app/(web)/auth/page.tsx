@@ -71,9 +71,9 @@ const Auth = () => {
                 value={formData.password}
                 onChange={handleInputChange}
                 />
-                <button type='submit' className='w-full bg-tertiary-dark focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center'>Sign Up</button>
+                <button type='submit' className='w-full bg-tertiary-light focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center'>Sign Up</button>
             </form>
-            <button className='w-full bg-tertiary-dark focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center'>Login</button>
+            <button className='w-full bg-tertiary-light focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center'>Login</button>
         </div>
     </section>
   )
