@@ -12,7 +12,7 @@ const defaultFormData = {
 
 const Auth = () => {
     const [formData, setFormData] = useState(defaultFormData);
-    const inputStyles = 'border border-gray-300 sm:text-sm text-black rounded:lg block w-full p-2.5 focus:outline-none'
+    const inputStyles = 'border border-gray-300 sm:text-sm text-black rounded-lg block w-full p-2.5 focus:outline-none'
     const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const {name, value} = event.target;
         setFormData({ ...formData, [name]: value});
@@ -71,9 +71,9 @@ const Auth = () => {
                 value={formData.password}
                 onChange={handleInputChange}
                 />
-                <button type='submit' className='w-full bg-tertiary-dark focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center'>Sign Up</button>
+                <button type='submit' className='w-full bg-tertiary-light focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center'>Sign Up</button>
             </form>
-            <button className='w-full bg-tertiary-dark focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center'>Login</button>
+            <button className='w-full bg-tertiary-light focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center'>Login</button>
         </div>
     </section>
   )

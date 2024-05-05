@@ -1,8 +1,7 @@
 import { defineField } from 'sanity';
-
-const facilityTypes = [
+const roomTypes = [
   { title: 'Amphitheatre', value: 'amphitheatre' },
-  { title: 'ConferenceFacility', value: 'conferenceFacility' },
+  { title: 'ConferenceRoom', value: 'conferenceRoom' },
   { title: 'Class', value: 'class' },
 ];
 
