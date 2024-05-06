@@ -1,4 +1,5 @@
 import { defineField } from 'sanity';
+
 const roomTypes = [
   { title: 'Amphitheatre', value: 'amphitheatre' },
   { title: 'ConferenceRoom', value: 'conferenceRoom' },
@@ -63,10 +64,10 @@ const facility = {
       title: 'Facility Type',
       type: 'string',
       options: {
-        list: facilityTypes,
+        list: roomTypes,
       },
       validation: Rule => Rule.required(),
-      initialValue: 'Amphitheatre',
+      initialValue: 'basic',
     }),
     defineField({
       name: 'specialNote',
