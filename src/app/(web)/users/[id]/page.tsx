@@ -160,22 +160,7 @@ const UserDetails = (props: { params: { id: string } }) => {
               >
                 <BsJournalBookmarkFill />
                 <a className='inline-flex items-center mx-1 md:mx-3 text-xs md:text-sm font-medium'>
-                  Current Bookings
-                </a>
-              </li>
-            </ol>
-            <ol
-              className={`${
-                currentNav === 'amount' ? 'text-blue-600' : 'text-gray-700'
-              } inline-flex mr-1 md:mr-5 items-center space-x-1 md:space-x-3`}
-            >
-              <li
-                onClick={() => setCurrentNav('amount')}
-                className='inline-flex items-center cursor-pointer'
-              >
-                <GiMoneyStack />
-                <a className='inline-flex items-center mx-1 md:mx-3 text-xs md:text-sm font-medium'>
-                  Amount Spent
+                  Current Reserved Facilities
                 </a>
               </li>
             </ol>

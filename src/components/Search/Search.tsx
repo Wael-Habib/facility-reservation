@@ -39,6 +39,7 @@ const Search: FC<Props> = ({
           </label>
           <div className='relative'>
             <select
+              title = "facilityTypeFilter"
               value={facilityTypeFilter}
               onChange={handleFacilityTypeChange}
               className='w-full px-4 py-2 capitalize rounded leading-tight dark:bg-black focus:outline-none'

@@ -130,6 +130,7 @@ const PhotoGallery: FC<{ photos: ImageType[] }> = ({ photos }) => {
                 </span>
               </div>
               <button
+                title='Cancel'
                 className='absolute top-2 right-2 text-white text-lg'
                 onClick={closeModal}
               >
