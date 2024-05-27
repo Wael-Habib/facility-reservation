@@ -45,6 +45,7 @@ const RatingModal: FC<Props> = props => {
           <div className='flex items-center'>
             {starValues.map(value => (
               <button
+                title='rating'
                 className={`w-6 h-6 ${
                   ratingValue === value ? 'text-yellow-500' : 'text-gray-300'
                 }`}
@@ -63,6 +64,7 @@ const RatingModal: FC<Props> = props => {
           </label>
 
           <textarea
+            title='rating'
             value={ratingText}
             onChange={e => setRatingText(e.target.value)}
             rows={4}

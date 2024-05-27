@@ -1,8 +1,14 @@
 'use client';
 
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import {AiFillGithub} from 'react-icons/ai'
 import {FcGoogle} from 'react-icons/fc'
+import { signUp } from 'next-auth-sanity/client';
+import { signIn, useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+
+
 const defaultFormData = {
     email: '',
     name: '',
@@ -17,7 +23,6 @@ const Auth = () => {
         const {name, value} = event.target;
         setFormData({ ...formData, [name]: value});
     };
-
     const { data: session } = useSession();
   const router = useRouter();
 
@@ -34,15 +39,16 @@ const Auth = () => {
       toast.error("Something wen't wrong");
     }
   };
-
-
     const handleSubmit = async (event: FormEvent<HTMLFormElement>)  =>{
         event.preventDefault();
 
         try  {
-            console.log(formData);
+            const user = await signUp(formData);
+            if (user) {
+                toast.success('Success. Please sign in');
+            }
         } catch (error) {
-            console.log(error);
+            toast.error("Something wen't wrong");
         } finally {
             setFormData(defaultFormData);
         }
@@ -56,11 +62,11 @@ const Auth = () => {
                 </h1>
                 <p>OR</p>
                 <span className="inline-flex items-center">
-                    <AiFillGithub
+                    <AiFillGithub 
                         onClick={loginHandler}
-                        className='mr-3 text-4xl cursor-pointer text-black dark:text-white'
+                        className='mr-3 text-4xl cursor-pointer text-black dark:text-white' 
                         />{' '}
-                    <FcGoogle
+                    <FcGoogle 
                         onClick={loginHandler}
                         className="ml-3 text-4xl cursor-pointer"
                     />
@@ -98,10 +104,10 @@ const Auth = () => {
                 />
                 <button type='submit' className='w-full bg-tertiary-light focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center'>Sign Up</button>
             </form>
-            <button className='w-full bg-tertiary-light focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center'>Login</button>
+            <button onClick={loginHandler} className='w-full bg-tertiary-light focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center'>Login</button>
         </div>
     </section>
-  )
-}
+  );
+};
 
-export default Auth
+export default Auth;
