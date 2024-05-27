@@ -40,11 +40,7 @@ export const createBooking = async ({
   adults,
   checkinDate,
   checkoutDate,
-  children,
-  discount,
   Facility,
-  numberOfDays,
-  totalPrice,
   user,
 }: CreateBookingDto) => {
   const mutation = {
@@ -56,11 +52,7 @@ export const createBooking = async ({
           Facility: { _type: 'reference', _ref: Facility },
           checkinDate,
           checkoutDate,
-          numberOfDays,
           adults,
-          children,
-          totalPrice,
-          discount,
         },
       },
     ],
