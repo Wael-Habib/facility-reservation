@@ -26,14 +26,14 @@ const FacilityCard: FC<Props> = props => {
       </div>
 
       <div className='p-4 bg-white'>
-        <div className='flex justify-between text-xl font-semibold'>
+      <div className='flex justify-between text-xl font-semibold'>
           <p>{name}</p>
-          <p>$ {price}</p>
+         
         </div>
 
-        <p className='pt-2 text-xs'>{type} Facility</p>
+        <p className='pt-2 text-xs'>{type} </p>
 
-        <p className='pt-3 pb-6'>{description.slice(1, 100)}...</p>
+        <p className='pt-3 pb-6'>{description.slice(0, 100)}...</p>
 
         <Link
           href={`/facilitys/${slug.current}`}
