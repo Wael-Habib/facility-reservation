@@ -1,6 +1,6 @@
 import { groq } from 'next-sanity';
 
-export const getFeaturedFacilityQuery = groq`*[_type == "Facility" && isFeatured == true][0] {
+export const getFeaturedFacilityQuery = groq`*[_type == "facility" && isFeatured == true][0] {
     _id,
     description,
     images,
@@ -10,7 +10,7 @@ export const getFeaturedFacilityQuery = groq`*[_type == "Facility" && isFeatured
     coverImage
 }`;
 
-export const getFacilitysQuery = groq`*[_type == "Facility"] {
+export const getFacilitysQuery = groq`*[_type == "facility"] {
     _id,
     coverImage,
     description,
@@ -22,7 +22,7 @@ export const getFacilitysQuery = groq`*[_type == "Facility"] {
     type
 }`;
 
-export const getFacility = groq`*[_type == "Facility" && slug.current == $slug][0] {
+export const getFacility = groq`*[_type == "facility" && slug.current == $slug][0] {
     _id,
     coverImage,
     description,

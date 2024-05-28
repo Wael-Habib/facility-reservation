@@ -18,15 +18,15 @@ const ClientComponent: FC<Props> = props => {
         {heading1}
 
         <div className='flex justify-between mt-12'>
-          <div className='flex gap-3 flex-col items-center justify-center'>
+          <div className='flex gap-6 flex-col items-center justify-center w-40 h-20'>
             <p className='text-xs lg:text-xl text-center'>Amphitheatre </p>
             <CountUpNumber duration={5000} endValue={50} />
           </div>
-          <div className='flex gap-3 flex-col items-center justify-center'>
+          <div className='flex gap-6 flex-col items-center justify-center w-80 h-20'>
             <p className='text-xs lg:text-xl text-center'>ConferenceRoom Facility</p>
             <CountUpNumber duration={5000} endValue={120} />
           </div>
-          <div className='flex gap-3 flex-col items-center justify-center'>
+          <div className='flex gap-6 flex-col items-center justify-center w-40 h-20'>
             <p className='text-xs lg:text-xl text-center'>Class</p>
             <CountUpNumber duration={5000} endValue={60} />
           </div>
@@ -37,5 +37,6 @@ const ClientComponent: FC<Props> = props => {
     </section>
   );
 };
+
 
 export default ClientComponent;

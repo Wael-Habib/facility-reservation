@@ -12,6 +12,7 @@ type Props = {
 
 const FeaturedFacility: FC<Props> = props => {
   const { featuredFacility } = props;
+  
 
   return (
     <section className='flex md:flex-row flex-col px-4 py-10 items-center gap-12 container mx-auto'>
@@ -39,6 +40,7 @@ const FeaturedFacility: FC<Props> = props => {
           ))}
         </div>
       </div>
+      
 
       <div className='md:py-10 md:w-1/2 text-left'>
         <h3 className='font-heading mb-12'>Featured Facility</h3>
@@ -46,20 +48,7 @@ const FeaturedFacility: FC<Props> = props => {
         <p className='font-normal max-w-md'>{featuredFacility.description}</p>
 
         <div className='flex flex-col md:flex-row md:items-end justify-between mt-5'>
-          <div className='flex mb-3 md:mb-0'>
-            <div className='flex gap-3 flex-col items-center justify-center mr-4'>
-              <p className='text-xs lg:text-xl text-center'>Start From</p>
-              <p className='md:font-bold flex font-medium text-lg xl:text-5xl'>
-                $ {featuredFacility.price}
-              </p>
-            </div>
-            <div className='flex gap-3 flex-col items-center justify-center mr-4'>
-              <p className='text-xs lg:text-xl text-center'>Discount</p>
-              <p className='md:font-bold flex font-medium text-lg xl:text-5xl'>
-                $ {featuredFacility.discount}
-              </p>
-            </div>
-          </div>
+          
 
           <Link
             href={`/facilities/${featuredFacility.slug.current}`}
