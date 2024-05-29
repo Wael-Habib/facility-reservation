@@ -12,6 +12,10 @@ type CoverImage = {
     amenity: string;
     icon: string;
   };
+  type Reviews = {
+    _key: string;
+    review: string;
+  };
 
   type Slug = {
     _type: string;
@@ -20,20 +24,19 @@ type CoverImage = {
 
   export type Facility = {
     _id: string;
-    coverImage: CoverImage;
-    description: string;
-    dimension: string;
-    discount: number;
-    images: Image[];
-    isBooked: boolean;
-    isFeatured: boolean;
     name: string;
-    numberOfBeds: number;
-    offeredAmenities: Amenity[];
-    price: number;
     slug: Slug;
-    specialNote: string;
+    description: string;
+    images: Image[];
+    coverImage: CoverImage;
     type: string;
+    specialNote: string;
+    dimension: string;
+    numberOfSeats: number;
+    offeredAmenities: Amenity[];
+    isBooked: boolean;
+    reviews: Reviews[];
+    isFeatured: boolean;
   };
 
   export type CreateBookingDto = {
@@ -41,9 +44,6 @@ type CoverImage = {
     Facility: string;
     checkinDate: string;
     checkoutDate: string;
+    participants: number;
     numberOfDays: number;
-    adults: number;
-    children: number;
-    totalPrice: number;
-    discount: number;
   };

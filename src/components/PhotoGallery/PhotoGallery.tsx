@@ -30,7 +30,7 @@ const PhotoGallery: FC<{ photos: ImageType[] }> = ({ photos }) => {
     );
   };
 
-  const maximumVisiblePhotos = 4;
+  const maximumVisiblePhotos = 3;
   const totalPhotos = photos.length;
   const displayPhotos = photos.slice(1, maximumVisiblePhotos - 1);
   const remainingPhotosCount = totalPhotos - maximumVisiblePhotos;

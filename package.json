@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@sanity/vision": "^3.40.0",
-    "axios": "^1.6.8",
+    "axios": "^1.7.2",
     "chart.js": "^4.4.2",
     "next": "^14.2.3",
     "next-auth": "^4.24.7",

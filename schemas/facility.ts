@@ -74,7 +74,7 @@ const facility = {
       type: 'text',
       validation: Rule => Rule.required(),
       initialValue:
-        'Check-in time is 12:00 PM, checkout time is 11:59 AM. If you leave behind any items, please contact the receptionist.',
+        'As you prepare to reserve one of our facilities, we kindly ask that you leave the space clean, tidy, and undamaged, ensuring that nothing is broken or left behind. By treating the facility and its contents with care and respect, you\'ll be helping us maintain a welcoming and comfortable environment for all who use it. We appreciate your cooperation in keeping our facilities well-maintained and ready for the next group of students to enjoy.',
     }),
     defineField({
       name: 'dimension',
@@ -118,7 +118,7 @@ const facility = {
       name: 'reviews',
       title: 'Reviews',
       type: 'array',
-      of: [{ type: 'review' }],
+      of: [{ name: "Review",type: 'review' }],
     }),
   ],
 };

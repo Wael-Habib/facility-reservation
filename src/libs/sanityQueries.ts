@@ -10,7 +10,7 @@ export const getFeaturedFacilityQuery = groq`*[_type == "facility" && isFeatured
     coverImage
 }`;
 
-export const getFacilitysQuery = groq`*[_type == "facility"] {
+export const getFacilitiesQuery = groq`*[_type == "facility"] {
     _id,
     coverImage,
     description,
@@ -22,20 +22,22 @@ export const getFacilitysQuery = groq`*[_type == "facility"] {
     type
 }`;
 
+
 export const getFacility = groq`*[_type == "facility" && slug.current == $slug][0] {
     _id,
-    coverImage,
-    description,
-    dimension,
-    images,
-    isBooked,
-    isFeatured,
     name,
+    slug,
+    description,
+    images,
+    coverImage,
+    type,
+    specialNote,
+    dimension,
     numberOfSeats,
     offeredAmenities,
-    slug,
-    specialNote,
-    type
+    isBooked,
+    reviews,
+    isFeatured,
 }`;
 
 export const getUserBookingsQuery = groq`*[_type == 'booking' && user._ref == $userId] {

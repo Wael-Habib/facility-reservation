@@ -38,6 +38,13 @@ const booking = {
       initialValue: 1,
       validation: Rule => Rule.required().min(1),
     }),
+    defineField({
+      name: 'participants',
+      title: 'Participants',
+      type: 'number',
+      initialValue: 0,
+      validation: Rule => Rule.required().min(1),
+    }),
   ],
 };
 

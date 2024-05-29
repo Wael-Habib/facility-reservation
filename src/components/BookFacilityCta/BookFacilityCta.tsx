@@ -9,38 +9,27 @@ type Props = {
   setCheckinDate: Dispatch<SetStateAction<Date | null>>;
   checkoutDate: Date | null;
   setCheckoutDate: Dispatch<SetStateAction<Date | null>>;
-  setAdults: Dispatch<SetStateAction<number>>;
-  setNoOfChildren: Dispatch<SetStateAction<number>>;
   calcMinCheckoutDate: () => Date | null;
-  price: number;
-  discount: number;
-  adults: number;
-  noOfChildren: number;
   specialNote: string;
+  setParticipants: Dispatch<SetStateAction<number>>;
+  participants: number;
   isBooked: boolean;
   handleBookNowClick: () => void;
 };
 
 const BookFacilityCta: FC<Props> = props => {
   const {
-    price,
-    discount,
     specialNote,
     checkinDate,
     setCheckinDate,
     checkoutDate,
+    setParticipants,
+    participants,
     setCheckoutDate,
     calcMinCheckoutDate,
-    setAdults,
-    setNoOfChildren,
-    adults,
-    noOfChildren,
     isBooked,
     handleBookNowClick,
   } = props;
-
-  const discountPrice = price - (price / 100) * discount;
-
   const calcNoOfDays = () => {
     if (!checkinDate || !checkoutDate) return 0;
     const timeDiff = checkoutDate.getTime() - checkinDate.getTime();
@@ -50,23 +39,6 @@ const BookFacilityCta: FC<Props> = props => {
 
   return (
     <div className='px-7 py-6'>
-      <h3>
-        <span
-          className={`${discount ? 'text-gray-400' : ''} font-bold text-xl`}
-        >
-          $ {price}
-        </span>
-        {discount ? (
-          <span className='font-bold text-xl'>
-            {' '}
-            | discount {discount}%. Now{' '}
-            <span className='text-tertiary-dark'>$ {discountPrice}</span>
-          </span>
-        ) : (
-          ''
-        )}
-      </h3>
-
       <div className='w-full border-b-2 border-b-secondary my-2' />
 
       <h4 className='my-8'>{specialNote}</h4>
@@ -106,50 +78,25 @@ const BookFacilityCta: FC<Props> = props => {
           />
         </div>
       </div>
-
       <div className='flex mt-4'>
         <div className='w-1/2 pr-2'>
           <label
-            htmlFor='adults'
+            htmlFor='participants'
             className='block text-sm font-medium text-gray-900 dark:text-gray-400'
           >
-            Adults
+            Participants
           </label>
           <input
             type='number'
-            id='adults'
-            value={adults}
-            onChange={e => setAdults(+e.target.value)}
+            id='participants'
+            value={participants}
+            onChange={e => setParticipants(+e.target.value)}
             min={1}
-            max={5}
-            className='w-full border border-gray-300 rounded-lg p-2.5'
-          />
-        </div>
-        <div className='w-1/2 pl-2'>
-          <label
-            htmlFor='children'
-            className='block text-sm font-medium text-gray-900 dark:text-gray-400'
-          >
-            Children
-          </label>
-          <input
-            type='number'
-            id='children'
-            value={noOfChildren}
-            onChange={e => setNoOfChildren(+e.target.value)}
-            min={0}
-            max={3}
+            max={2000}
             className='w-full border border-gray-300 rounded-lg p-2.5'
           />
         </div>
       </div>
-
-      {calcNoOfDays() > 0 ? (
-        <p className='mt-3'>Total Price: $ {calcNoOfDays() * discountPrice}</p>
-      ) : (
-        <></>
-      )}
-
       <button
         disabled={isBooked}
         onClick={handleBookNowClick}

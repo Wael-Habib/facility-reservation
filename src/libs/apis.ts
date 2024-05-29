@@ -19,7 +19,7 @@ export async function getFeaturedFacility() {
 
 export async function getFacilities() {
   const result = await sanityClient.fetch<Facility[]>(
-    queries.getFacilitysQuery,
+    queries.getFacilitiesQuery,
     {},
     { cache: 'no-cache' }
   );
@@ -37,11 +37,12 @@ export async function getFacility(slug: string) {
 }
 
 export const createBooking = async ({
-  adults,
+  user,
+  Facility,
   checkinDate,
   checkoutDate,
-  Facility,
-  user,
+  participants,
+  numberOfDays,
 }: CreateBookingDto) => {
   const mutation = {
     mutations: [
@@ -52,7 +53,8 @@ export const createBooking = async ({
           Facility: { _type: 'reference', _ref: Facility },
           checkinDate,
           checkoutDate,
-          adults,
+          numberOfDays,
+          participants,
         },
       },
     ],
