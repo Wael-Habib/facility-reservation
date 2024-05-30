@@ -42,12 +42,12 @@ export async function POST(req: Request, res: Response) {
       });
     }
 
-    const Facility = await getFacility(Slug);
+    const facility = await getFacility(Slug);
 
     // Create booking
     await createBooking({
       participants: Number(participants),
-      Facility: String(Facility),
+      Facility: String(facility),
       checkinDate,
       checkoutDate,
       numberOfDays: Number(numberOfDays),
@@ -55,7 +55,7 @@ export async function POST(req: Request, res: Response) {
     });
 
     // Update facility
-    await updateFacility(Facility._id);
+    await updateFacility(facility._id);
 
     return new NextResponse('Booking successful', {
       status: 200,
