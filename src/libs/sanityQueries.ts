@@ -49,6 +49,8 @@ export const getUserBookingsQuery = groq`*[_type == 'booking' && user._ref == $u
     },
     checkinDate,
     checkoutDate,
+    numberOfDays,
+    participants
 }`;
 
 export const getUserDataQuery = groq`*[_type == 'user' && _id == $userId][0] {
