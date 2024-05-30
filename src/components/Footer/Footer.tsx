@@ -5,9 +5,6 @@ const Footer = () => {
   return (
     <footer className="mt-16">
         <div className="container mx-auto px-4">
-            <Link href='/' className='font-black text-tertiary-dark'>
-                Facility
-            </Link>
             <h4 className='font-semibold text-[40px] py-6'>Contact</h4>
             <div className="flex flex-wrap gap-16 items-center justify-between">
                 <div className="flex-1">

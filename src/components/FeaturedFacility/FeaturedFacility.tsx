@@ -27,25 +27,21 @@ const FeaturedFacility: FC<Props> = props => {
           />
         </div>
         <div className='grid grid-cols-2 gap-8 h-48'>
-          {featuredFacility.images.splice(1, 2).map(image => (
-            <div key={image._key} className='rounded-2xl overflow-hidden'>
-              <Image
-                src={image.url}
-                alt={image._key}
-                width={300}
-                height={300}
-                className='img scale-animation'
-              />
-            </div>
-          ))}
+        <Image
+              src='/images/ieee.jpeg'
+              alt='ieee'
+              width={300}
+              height={300}
+              className='img scale-animation'
+            />
         </div>
       </div>
       
 
       <div className='md:py-10 md:w-1/2 text-left'>
-        <h3 className='font-heading mb-12'>Featured Facility</h3>
+        <h3 className='font-heading mb-12'>Check out this Event</h3>
 
-        <p className='font-normal max-w-md'>{featuredFacility.description}</p>
+        <p className='font-normal max-w-md'>Work in Progress</p>
 
         <div className='flex flex-col md:flex-row md:items-end justify-between mt-5'>
           
