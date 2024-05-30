@@ -10,7 +10,7 @@ type Props = {
 
 const FacilityCard: FC<Props> = props => {
   const {
-    facility: { coverImage, name, price, type, description, slug, isBooked },
+    facility: { coverImage, name, type, description, slug, isBooked },
   } = props;
 
   return (
@@ -28,7 +28,7 @@ const FacilityCard: FC<Props> = props => {
       <div className='p-4 bg-white'>
       <div className='flex justify-between text-xl font-semibold'>
           <p>{name}</p>
-         
+
         </div>
 
         <p className='pt-2 text-xs'>{type} </p>
