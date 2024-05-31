@@ -11,7 +11,6 @@ const Home = async () => {
   return (
     <>
       <HeroSection />
-      <PageSearch />
       {<FeaturedFacility featuredFacility={featuredFacility} /> }
       {/*<Gallery />*/}
       <NewsLetter />

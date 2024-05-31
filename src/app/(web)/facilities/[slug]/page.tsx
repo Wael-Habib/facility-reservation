@@ -21,6 +21,8 @@ const FacilityDetails = (props: { params: { slug: string } }) => {
   const [checkinDate, setCheckinDate] = useState<Date | null>(null);
   const [checkoutDate, setCheckoutDate] = useState<Date | null>(null);
   const [participants, setParticipants] = useState(1);
+  const [numberOfSeats, setnumberOfSeats] = useState(1);
+  
 
   const fetchFacility = async () => getFacility(slug);
 
@@ -165,6 +167,7 @@ const FacilityDetails = (props: { params: { slug: string } }) => {
               setCheckoutDate={setCheckoutDate}
               calcMinCheckoutDate={calcMinCheckoutDate}
               participants={participants}
+              numberOfSeats={facility.numberOfSeats}
               setParticipants={setParticipants}
               isBooked={facility.isBooked}
               handleBookNowClick={handleBookNowClick}
