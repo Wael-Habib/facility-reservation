@@ -14,7 +14,7 @@ const booking = {
     }),
     defineField({
       name: 'facility',
-      title: 'facility',
+      title: 'Facility',
       type: 'reference',
       to: [{ type: 'facility' }],
       validation: Rule => Rule.required(),

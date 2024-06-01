@@ -115,7 +115,7 @@ const facility = {
       initialValue: false,
     }),
     defineField({
-      name: 'reviews',
+      name: 'review',
       title: 'Reviews',
       type: 'array',
       of: [{ name: "Review",type: 'review' }],

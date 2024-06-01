@@ -22,7 +22,7 @@ const FacilityDetails = (props: { params: { slug: string } }) => {
   const [checkoutDate, setCheckoutDate] = useState<Date | null>(null);
   const [participants, setParticipants] = useState(1);
   const [numberOfSeats, setnumberOfSeats] = useState(1);
-  
+
 
   const fetchFacility = async () => getFacility(slug);
 

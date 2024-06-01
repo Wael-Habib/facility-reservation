@@ -54,7 +54,7 @@ export async function POST(req: Request, res: Response) {
       });
     } else {
       data = await createReview({
-        FacilityId: facilityId,
+        facilityId: facilityId,
         reviewText,
         userId,
         userRating: ratingValue,

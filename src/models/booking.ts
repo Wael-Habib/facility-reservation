@@ -1,6 +1,6 @@
 export type Booking = {
     _id: string;
-    Facility: {
+    facility: {
       _id: string;
       name: string;
       slug: { current: string };

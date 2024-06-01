@@ -19,13 +19,13 @@ const Table: FC<Props> = ({ bookingDetails, setFacilityId, toggleRatingModal }) 
       <table className='w-full text-sm text-left text-gray-500'>
         <thead className='text-xs text-gray-700 uppercase bg-gray-50'>
           <tr>
-            <th className='px-6 py-3'>Facility name</th>
-            <th className='px-6 py-3'>INFO</th>
-            <th className='px-6 py-3'>INFO</th>
-            <th className='px-6 py-3'>INFO</th>
-            <th className='px-6 py-3'>INFO</th>
-            <th className='px-6 py-3'>INFO</th>
+          <th className='px-6 py-3'>Facility Name</th>
+            <th className='px-6 py-3'>Checkin</th>
+            <th className='px-6 py-3'>Checkout</th>
+            <th className='px-6 py-3'>No of days</th>
+            <th className='px-6 py-3'>No of Participants</th>
             <th className='px-6 py-3'></th>
+
           </tr>
         </thead>
         <tbody>
@@ -36,21 +36,22 @@ const Table: FC<Props> = ({ bookingDetails, setFacilityId, toggleRatingModal }) 
             >
               <th
                 onClick={() =>
-                  router.push(`/facilitys/${booking.Facility.slug.current}`)
+                  router.push(`/facilities/${booking.facility.slug.current}`)
                 }
                 className='px-6 underline text-blue-600 cursor-pointer py-4 font-medium whitespace-nowrap'
               >
-                {booking.Facility.name}
+                {booking.facility.name}
               </th>
-              <td className='px-6 py-4'>{booking.Facility.price}</td>
-              <td className='px-6 py-4'>{booking.totalPrice}</td>
-              <td className='px-6 py-4'>{booking.discount}</td>
+              <td className='px-6 py-4'>{booking.facility.name}</td>
+              <td className='px-6 py-4'>{booking.checkinDate}</td>
+              <td className='px-6 py-4'>{booking.checkoutDate}</td>
               <td className='px-6 py-4'>{booking.numberOfDays}</td>
+              <td className='px-6 py-4'>{booking.participants}</td>
               <td className='px-6 py-4'>0</td>
               <td className='px-6 py-4'>
                 <button
                   onClick={() => {
-                    setFacilityId(booking.Facility._id);
+                    setFacilityId(booking.facility._id);
                     toggleRatingModal()
                   }}
                   className='font-medium text-blue-600 hover:underline'

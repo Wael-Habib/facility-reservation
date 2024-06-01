@@ -5,7 +5,7 @@ export type UpdateReviewDto = {
   };
 
   export type CreateReviewDto = {
-    FacilityId: string;
+    facilityId: string;
     reviewText: string;
     userRating: number;
     userId: string;

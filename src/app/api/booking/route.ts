@@ -49,7 +49,7 @@ export async function POST(req: Request, res: Response) {
     // Create booking
     await createBooking({
       participants: Number(participants),
-      Facility: String(facility),
+      facility: String(facility),
       checkinDate,
       checkoutDate,
       numberOfDays: Number(numberOfDays),

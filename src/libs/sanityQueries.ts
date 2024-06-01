@@ -42,7 +42,7 @@ export const getFacility = groq`*[_type == "facility" && slug.current == $slug][
 
 export const getUserBookingsQuery = groq`*[_type == 'booking' && user._ref == $userId] {
     _id,
-    Facility -> {
+    facility -> {
         _id,
         name,
         slug,
@@ -63,7 +63,7 @@ export const getUserDataQuery = groq`*[_type == 'user' && _id == $userId][0] {
     image,
 }`;
 
-export const getFacilityReviewsQuery = groq`*[_type == "review" && Facility._ref == $facilityId] {
+export const getFacilityReviewsQuery = groq`*[_type == "review" && facility._ref == $facilityId] {
     _createdAt,
     _id,
     text,
