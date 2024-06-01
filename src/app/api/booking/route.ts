@@ -9,6 +9,7 @@ type RequestData = {
   numberOfDays: number;
   participants: number;
   Slug: string;
+  userId: string;
 };
 
 export async function POST(req: Request, res: Response) {
@@ -28,6 +29,7 @@ export async function POST(req: Request, res: Response) {
       checkoutDate,
       numberOfDays,
       Slug,
+      userId,
     }: RequestData = body;
 
     if (
