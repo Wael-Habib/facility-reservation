@@ -1,7 +1,7 @@
 import { defineField } from 'sanity';
 const facilityTypes = [
   { title: 'Amphitheatre', value: 'amphitheatre' },
-  { title: 'ConferenceRoom', value: 'conferenceRoom' },
+  { title: 'The Conference Space', value: 'the_Conference_Space' },
   { title: 'Class', value: 'class' },
 ];
 

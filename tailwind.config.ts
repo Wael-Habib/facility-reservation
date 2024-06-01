@@ -11,7 +11,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#AE9262ff',
+        primary: '#830709', //maron
         secondary: '#000000ff',
         tertiary: {
           dark: '#830709ff',

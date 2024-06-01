@@ -3,6 +3,7 @@
 import { Dispatch, FC, SetStateAction } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import facility from '../../../schemas/facility';
 
 type Props = {
   checkinDate: Date | null;
@@ -15,6 +16,7 @@ type Props = {
   participants: number;
   isBooked: boolean;
   handleBookNowClick: () => void;
+  numberOfSeats: number;
 };
 
 const BookFacilityCta: FC<Props> = props => {
@@ -22,6 +24,7 @@ const BookFacilityCta: FC<Props> = props => {
     specialNote,
     checkinDate,
     setCheckinDate,
+    numberOfSeats,
     checkoutDate,
     setParticipants,
     participants,
@@ -84,7 +87,7 @@ const BookFacilityCta: FC<Props> = props => {
             htmlFor='participants'
             className='block text-sm font-medium text-gray-900 dark:text-gray-400'
           >
-            Participants
+            Participants (Max: {numberOfSeats})
           </label>
           <input
             type='number'
