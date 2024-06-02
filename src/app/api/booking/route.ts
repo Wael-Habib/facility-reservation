@@ -9,28 +9,18 @@ type RequestData = {
   numberOfDays: number;
   participants: number;
   Slug: string;
-  userId: string;
 };
 
 export async function POST(req: Request, res: Response) {
-  const body = await req.json();
-  const session = await getServerSession(authOptions);
-
-  if (!session) {
-    return new NextResponse('Authentication required', { status: 400 });
-  }
-
-  const userId = session.user.id;
-
+  console.log("test");
   try {
     const {
-      participants,
       checkinDate,
       checkoutDate,
+      participants,
       numberOfDays,
       Slug,
-      userId,
-    }: RequestData = body;
+    }: RequestData = await req.json();
 
     if (
       !checkinDate ||
@@ -43,16 +33,23 @@ export async function POST(req: Request, res: Response) {
         status: 400,
       });
     }
+    const origin = req.headers.get('origin');
 
+    const session = await getServerSession(authOptions);
+    if (!session) {
+      return new NextResponse('Authentication required', { status: 400 });
+    }
+
+    const userId = session.user.id;
     const facility = await getFacility(Slug);
-
+    
     // Create booking
     await createBooking({
-      participants: Number(participants),
-      facility: String(facility),
+      participants: participants,
+      facility: facility.name,
       checkinDate,
       checkoutDate,
-      numberOfDays: Number(numberOfDays),
+      numberOfDays,
       user: userId,
     });
 

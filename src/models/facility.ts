@@ -44,6 +44,6 @@ type CoverImage = {
     facility: string;
     checkinDate: string;
     checkoutDate: string;
-    participants: number;
     numberOfDays: number;
+    participants: number;
   };
