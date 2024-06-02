@@ -1,6 +1,6 @@
 'use client';
 
-import { createBooking, getFacility } from "@/libs/apis";
+import { getFacility } from "@/libs/apis";
 import useSWR from "swr";
 import { MdOutlineCleaningServices } from 'react-icons/md';
 import { LiaFireExtinguisherSolid } from 'react-icons/lia';
@@ -21,16 +21,22 @@ const FacilityDetails = (props: { params: { slug: string } }) => {
   const [checkinDate, setCheckinDate] = useState<Date | null>(null);
   const [checkoutDate, setCheckoutDate] = useState<Date | null>(null);
   const [participants, setParticipants] = useState(1);
-  const [numberOfSeats, setnumberOfSeats] = useState(1);
+  
+  const calcNumDays = () => {
+    if (!checkinDate || !checkoutDate) return 0;
+    const timeDiff = checkoutDate.getTime() - checkinDate.getTime();
+    const noOfDays = Math.ceil(timeDiff / (24 * 60 * 60 * 1000));
+    return noOfDays;
+  };
 
 
   const fetchFacility = async () => getFacility(slug);
 
-  const { data: facility, error, isLoading } = useSWR(`/api/facility/${slug}`, fetchFacility);
-
-  if (error) return <div>Cannot fetch data</div>;
+  const { data: facility, error, isLoading } = useSWR(`/api/facility`, fetchFacility);
+  
+  if (error) throw new Error('Cannot fetch data');
   if (typeof facility === 'undefined' && !isLoading)
-    return <div>Cannot fetch data</div>;
+    throw new Error('Cannot fetch data');
 
   if (!facility) return <LoadingSpinner />;
 
@@ -43,13 +49,6 @@ const FacilityDetails = (props: { params: { slug: string } }) => {
     return null;
   };
 
-  const calcNumDays = () => {
-    if (!checkinDate || !checkoutDate) return 0;
-    const timeDiff = checkoutDate.getTime() - checkinDate.getTime();
-    const noOfDays = Math.ceil(timeDiff / (24 * 60 * 60 * 1000));
-    return noOfDays;
-  };
-
   const handleBookNowClick = async () => {
     if (!checkinDate || !checkoutDate)
       return toast.error('Please provide checkin / checkout date');
@@ -59,16 +58,16 @@ const FacilityDetails = (props: { params: { slug: string } }) => {
 
     const numberOfDays = calcNumDays();
     const FacilitySlug = facility.slug.current;
-
+    
     try {
-      const { data } = await axios.post('/api/booking', {
-        checkinDate,
-        checkoutDate,
-        participants,
-        numberOfDays,
+      const { data } = await axios.post('/api/booking/route.ts', {
+        checkinDate: checkinDate,
+        checkoutDate: checkoutDate,
+        participants: participants,
+        numberOfDays: numberOfDays,
         Slug: FacilitySlug,
       });
-
+      console.log("test");
       if (data.status === 200) {
         toast.success('Booking successful');
       } else {
