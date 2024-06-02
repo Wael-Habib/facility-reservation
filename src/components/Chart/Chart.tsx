@@ -28,8 +28,7 @@ export const options = {
 };
 
 const Chart: FC<{ userBookings: Booking[] }> = ({ userBookings }) => {
-  const labels = userBookings.map(booking => booking.Facility.name);
-  const amountSpent = userBookings.map(booking => booking.totalPrice);
+  const labels = userBookings.map(booking => booking.facility.name);
 
   return (
     <Bar
@@ -39,7 +38,7 @@ const Chart: FC<{ userBookings: Booking[] }> = ({ userBookings }) => {
         datasets: [
           {
             label: 'Amount spent',
-            data: amountSpent,
+            data: "nothing",
             borderWidth: 1,
             backgroundColor: '#F27405',
             hoverBackgroundColor: '#F2C641',
