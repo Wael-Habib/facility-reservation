@@ -21,17 +21,17 @@ type Props = {
 
 const BookFacilityCta: FC<Props> = props => {
   const {
-    specialNote,
     checkinDate,
     setCheckinDate,
-    numberOfSeats,
     checkoutDate,
-    setParticipants,
-    participants,
     setCheckoutDate,
     calcMinCheckoutDate,
+    specialNote,
+    setParticipants,
+    participants,
     isBooked,
     handleBookNowClick,
+    numberOfSeats,
   } = props;
   const calcNoOfDays = () => {
     if (!checkinDate || !checkoutDate) return 0;
@@ -39,7 +39,7 @@ const BookFacilityCta: FC<Props> = props => {
     const noOfDays = Math.ceil(timeDiff / (24 * 60 * 60 * 1000));
     return noOfDays;
   };
-
+  console.log("participants:",participants);
   return (
     <div className='px-7 py-6'>
       <div className='w-full border-b-2 border-b-secondary my-2' />

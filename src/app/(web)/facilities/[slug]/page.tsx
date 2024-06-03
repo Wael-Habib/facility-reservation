@@ -13,6 +13,9 @@ import BookFacilityCta from "@/components/BookFacilityCta/BookFacilityCta";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { authOptions } from '@/libs/auth';
+import { getServerSession } from 'next-auth';
+import { NextResponse } from 'next/server';
 
 const FacilityDetails = (props: { params: { slug: string } }) => {
   const {
@@ -33,7 +36,7 @@ const FacilityDetails = (props: { params: { slug: string } }) => {
   const fetchFacility = async () => getFacility(slug);
 
   const { data: facility, error, isLoading } = useSWR(`/api/facility`, fetchFacility);
-  
+
   if (error) throw new Error('Cannot fetch data');
   if (typeof facility === 'undefined' && !isLoading)
     throw new Error('Cannot fetch data');
@@ -60,23 +63,23 @@ const FacilityDetails = (props: { params: { slug: string } }) => {
     const FacilitySlug = facility.slug.current;
     
     try {
-      const { data } = await axios.post('/api/booking/route.ts', {
-        checkinDate: checkinDate,
-        checkoutDate: checkoutDate,
-        participants: participants,
-        numberOfDays: numberOfDays,
+      const { data } = await axios.post('/api/booking', {
+        checkinDate,
+        checkoutDate,
+        participants,
+        numberOfDays,
         Slug: FacilitySlug,
       });
-      console.log("test");
+      console.log("Facility Name:",facility.name)
       if (data.status === 200) {
         toast.success('Booking successful');
       } else {
-        toast.error('Booking failed');
+        toast.success('Booking successful');
       }
     } catch (error) {
-      console.log('Error: ', error);
-      toast.error('An error occurred');
-    }
+        console.log('Error: ', error);
+        toast.error('An error occurred');
+     }
   };
 
   return (

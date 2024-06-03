@@ -22,7 +22,7 @@ const FacilityReview: FC<{ facilityId: string }> = ({ facilityId }) => {
     throw new Error('Cannot fetch data');
 
   console.log(facilityReviews);
-
+  
   return (
     <>
       {facilityReviews &&
