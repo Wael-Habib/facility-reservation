@@ -40,8 +40,8 @@ type CoverImage = {
   };
 
   export type CreateBookingDto = {
-    user: string;
-    facility: string;
+    userId: string;
+    facilityId: string;
     checkinDate: string;
     checkoutDate: string;
     numberOfDays: number;
