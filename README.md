@@ -17,7 +17,8 @@ Product brief: [`PRODUCT.md`](PRODUCT.md). Security history: [`docs/SECURITY_AUD
 ## Getting started
 
 ```bash
-cp .env.example .env.local     # fill DATABASE_URL and BETTER_AUTH_SECRET
+docker compose up -d           # local Postgres
+cp .env.example .env.local     # fill BETTER_AUTH_SECRET
 cp .env.local .env             # drizzle-kit and the seed read .env
 npm install
 npm run db:migrate             # create tables + no-overlap constraint
