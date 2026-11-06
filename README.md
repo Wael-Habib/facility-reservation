@@ -1,7 +1,6 @@
 # Nozl: hotel booking and front-desk system
 
 Booking website, front desk, KPI dashboard and alerts for small Tunisian hotels.
-Product brief: [`PRODUCT.md`](PRODUCT.md). Security history: [`docs/SECURITY_AUDIT.md`](docs/SECURITY_AUDIT.md).
 
 ## Stack
 

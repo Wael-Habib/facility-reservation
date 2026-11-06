@@ -37,3 +37,13 @@ next-env.d.ts
 
 # Claude Code personal settings
 .claude/settings.local.json
+
+# Local-only specs and notes: never commit or push
+CLAUDE.md
+CLAUDE.local.md
+PRODUCT.md
+docs/
+specs/
+notes/
+*.local.md
+.claude/
