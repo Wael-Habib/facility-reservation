@@ -1,0 +1,24 @@
+{
+  "Metadata": {
+    "title": "Hôtel Les Oliviers",
+    "description": "Réservez directement au meilleur prix. Hôtel 2 étoiles à Sousse, petit-déjeuner inclus."
+  },
+  "LocaleSwitcher": {
+    "label": "Langue",
+    "fr": "Français",
+    "ar": "العربية",
+    "en": "English"
+  },
+  "Home": {
+    "eyebrow": "Hôtel 2 étoiles · Sousse",
+    "title": "Réservez directement, au meilleur prix",
+    "subtitle": "Petit-déjeuner inclus, confirmation immédiate, sans intermédiaire.",
+    "cta": "Vérifier les disponibilités",
+    "comingSoon": "La réservation en ligne ouvre bientôt."
+  },
+  "NotFound": {
+    "title": "Page introuvable",
+    "description": "Cette page n'existe pas ou a été déplacée.",
+    "back": "Retour à l'accueil"
+  }
+}

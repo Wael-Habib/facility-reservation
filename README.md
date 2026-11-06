@@ -7,7 +7,8 @@ Booking website, front desk, KPI dashboard and alerts for small Tunisian hotels.
 | Layer | Choice |
 |---|---|
 | App | Next.js 16 (App Router), React 19, TypeScript |
-| UI | Tailwind CSS 4 (shadcn/ui from Phase 2) |
+| UI | Tailwind CSS 4, shadcn/ui (Radix, RTL-aware logical classes) |
+| i18n | next-intl: French (default), Arabic (RTL), English |
 | Database | PostgreSQL (Neon in production) via Drizzle ORM |
 | Auth | Better Auth, roles `admin` / `staff` / `guest` |
 | Validation | Zod |
@@ -26,6 +27,15 @@ npm run dev
 ```
 
 The seed prints the demo admin and reception logins unless `SEED_ADMIN_PASSWORD` / `SEED_STAFF_PASSWORD` are set.
+
+## Languages
+
+- Every page lives under `src/app/[locale]/` and every URL is prefixed: `/fr`, `/ar`, `/en`. `src/proxy.ts` redirects `/` to the browser's language (French by default).
+- Strings live in `messages/{fr,ar,en}.json`. French is the source of truth: keys are type-checked against `fr.json`, so add a key there first, then to `ar.json` and `en.json`.
+- Server components use `getTranslations` from `next-intl/server`. Client components get strings as props where possible, so no message file is shipped to the browser.
+- Use `Link`, `redirect`, `usePathname` from `@/i18n/navigation`, not from `next/link` / `next/navigation`.
+- Arabic pages get `dir="rtl"`. Use logical Tailwind classes (`ms-`, `me-`, `ps-`, `pe-`, `start-`, `end-`, `text-start`), never `ml-`, `mr-`, `left-`, `right-`. Flip directional icons with `rtl:rotate-180`.
+- Fonts are self-hosted: Geist for Latin, Noto Sans Arabic (OFL, `src/app/fonts/`) for Arabic glyphs.
 
 ## Data model
 

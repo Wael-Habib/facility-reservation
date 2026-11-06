@@ -1,0 +1,24 @@
+{
+  "Metadata": {
+    "title": "Hôtel Les Oliviers",
+    "description": "Book direct for the best price. 2-star hotel in Sousse, breakfast included."
+  },
+  "LocaleSwitcher": {
+    "label": "Language",
+    "fr": "Français",
+    "ar": "العربية",
+    "en": "English"
+  },
+  "Home": {
+    "eyebrow": "2-star hotel · Sousse",
+    "title": "Book direct, at the best price",
+    "subtitle": "Breakfast included, instant confirmation, no middleman.",
+    "cta": "Check availability",
+    "comingSoon": "Online booking opens soon."
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "description": "This page does not exist or has moved.",
+    "back": "Back to home"
+  }
+}
